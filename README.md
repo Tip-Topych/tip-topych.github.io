@@ -1,1 +1,0 @@
-# lazyhome.github.io
