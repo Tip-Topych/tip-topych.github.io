@@ -3,5 +3,5 @@ layout: page
 title: "Умный дом"
 permalink: /smarthome/
 ---
-{% post_url /smarthome/2021-05-06-install-esphome-in-docker %}
-[Name of Link]({% post_url /smarthome/2021-05-06-install-esphome-in-docker %})
+
+[# Установка ESPHome + dashboard в Docker]({% post_url /smarthome/2021-05-06-install-esphome-in-docker %})
