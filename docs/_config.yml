@@ -30,7 +30,7 @@ twitter_username:
 github_username:  
 
 jekyll-archives:
-  enabled: []
+  enabled: all
   layout: archive
   permalinks:
     year: '/:year/'
