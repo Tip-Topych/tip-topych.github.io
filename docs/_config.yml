@@ -31,6 +31,7 @@ github_username:
 
 # Build settings
 theme: minima
+  skin: dark
 plugins:
   - jekyll-feed
 
