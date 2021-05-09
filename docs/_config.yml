@@ -29,6 +29,11 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: 
 github_username:  
 
+collections:
+  sm:
+    output: true
+    permalink: /:collection/:name
+
 jekyll-archives:
   enabled: all
   layout: archive
