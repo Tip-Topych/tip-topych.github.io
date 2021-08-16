@@ -40,7 +40,8 @@ jekyll-archives:
     category: '/category/:name/'
 
 # Build settings
-theme: minima
+theme: jekyll-theme-hydure
+#theme: minima
 plugins:
   - jekyll-feed
   - jemoji
