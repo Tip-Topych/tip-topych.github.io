@@ -29,6 +29,11 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: 
 github_username:  
 
+header_pages:
+  - smarthome.md
+
+show_excerpts: true
+
 jekyll-archives:
   enabled: all
   layout: archive
