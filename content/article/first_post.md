@@ -1,6 +1,6 @@
 ---
 title: "First_post"
-date: 2021-11-21T15:16:31+07:00
+date: 2021-11-21
 draft: true
 
 categories: []
