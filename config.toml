@@ -1,187 +1,134 @@
-title = "My cool new Blog"
-baseURL = "https://example.com/"
-theme = "bilberry-hugo-theme"
-enableEmoji = true
+baseURL: "https://examplesite.com/"
+title: ExampleSite
+paginate: 5
+theme: PaperMod
 
-# Generate the robots.txt file for SEO
-enableRobotsTXT = true
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
 
-# Change to one of your content languages definded at the end.
-DefaultContentLanguage = "en"
+googleAnalytics: UA-123-45
 
-# Enable / Disable Google Analytics statistics for your site
-googleAnalytics = ""
+minify:
+    disableXML: true
+    minifyOutput: true
 
-# Enable / Disable comments on the articles via Disqus.
-disqusShortname = ""
+params:
+    env: production # to enable google analytics, opengraph, twitter-cards and schema.
+    title: ExampleSite
+    description: "ExampleSite description"
+    keywords: [Blog, Portfolio, PaperMod]
+    author: Me
+    # author: ["Me", "You"] # multiple authors
+    images: ["<link or path of image for opengraph, twitter-cards>"]
+    DateFormat: "January 2, 2006"
+    defaultTheme: auto # dark, light
+    disableThemeToggle: false
 
-# Enable / Disable open link with a new tab.
-[blackfriday]
-  hrefTargetBlank = false
+    ShowReadingTime: true
+    ShowShareButtons: true
+    ShowPostNavLinks: true
+    ShowBreadCrumbs: true
+    ShowCodeCopyButtons: false
+    disableSpecial1stPost: false
+    disableScrollToTop: false
+    comments: false
+    hidemeta: false
+    hideSummary: false
+    showtoc: false
+    tocopen: false
 
-[params]
-  # Custom CSS / JS modules that will be imported by the template.
-  # Files are relative to the static/ directory or a URL.
-  # Files are imported in the order they appear here, after
-  # theme.css and theme.js, respectively.
-  css_modules = []
-  js_modules = []
+    assets:
+        # disableHLJS: true # to disable highlight.js
+        # disableFingerprinting: true
+        favicon: "<link / abs url>"
+        favicon16x16: "<link / abs url>"
+        favicon32x32: "<link / abs url>"
+        apple_touch_icon: "<link / abs url>"
+        safari_pinned_tab: "<link / abs url>"
 
-  # Description and meta data for the search engines
-  author = "Lednerb"
-  description = "Bilberry Premium Theme for Hugo."
-  keywords = "blog,personal,responsive,search,font awesome,pages,posts,multilingual,highlight.js,syntax highlighting,premium,shortcuts"
+    label:
+        text: "Home"
+        icon: /apple-touch-icon.png
+        iconHeight: 35
 
-  # How many articles should be displayed at once?
-  paginate = 7
+    # profile-mode
+    profileMode:
+        enabled: false # needs to be explicitly set
+        title: ExampleSite
+        subtitle: "This is subtitle"
+        imageUrl: "<img location>"
+        imageWidth: 120
+        imageHeight: 120
+        imageTitle: my image
+        buttons:
+            - name: Posts
+              url: posts
+            - name: Tags
+              url: tags
 
-  # Enable / Disable MathJax
-  enable_mathjax    = false
+    # home-info mode
+    homeInfoParams:
+        Title: "Hi there \U0001F44B"
+        Content: Welcome to my blog
 
-  # Enable / Disable algolia search
-  algolia_search    = true
-  algolia_appId     = "45CEN6X6AT"
-  algolia_apiKey    = "16030625f1a4d0dd3b8aefd794fd4cf1"
-  algolia_indexName = "bilberry-hugo-theme"
-  # Set this option to false if you want to search within all articles in all languages at once
-  algolia_currentLanguageOnly = true
+    socialIcons:
+        - name: twitter
+          url: "https://twitter.com/"
+        - name: stackoverflow
+          url: "https://stackoverflow.com"
+        - name: github
+          url: "https://github.com/"
 
-  # Enable / Disable comments on the articles via commento
-  commentoJsURL = "https://commento.lednerb.de/js/commento.js"
+    analytics:
+        google:
+            SiteVerificationTag: "XYZabc"
+        bing:
+            SiteVerificationTag: "XYZabc"
+        yandex:
+            SiteVerificationTag: "XYZabc"
 
-  # Media configuration
-  # let hugo automatically resize and crop your images to the correct sizes
-  # NB: When enabled the image files get renamed by adding additional information,
-  #     even if the image has the correct sizes.
-  resizeImages = true
+    cover:
+        hidden: true # hide everywhere but not in structured data
+        hiddenInList: true # hide on list pages and home
+        hiddenInSingle: true # hide on single page
 
-  # Header configuration
-  # your subtitle if you want to use any
-  subtitle = "Hello World! This is the most epic subtitle ever."
+    editPost:
+        URL: "https://github.com/<path_to_repo>/content"
+        Text: "Suggest Changes" # edit text
+        appendFilePath: true # to append file path to Edit link
 
-  # if you want to use libravatar or gravatar for the header image
-  avatarEmail = "code@lednerb.de"
-
-  # set an path to the image file you want to use | overwrites avatar by email
-  customImage = ""
-
-  # define the icon you want to use for the overlay for the customImage or avatar.
-  overlayIcon = "fa-home"
-
-  # always display the top navigation (with pages and search) on non-mobile screens
-  permanentTopNav = false
-
-  # always display the top navigation when scrolling
-  # works only with permanentTopNav = true
-  stickyNav = false
-
-  # show a language chooser in the header
-  showHeaderLanguageChooser = false
-
-  # Content configuration
-  # Enable an optional pinned page to display at the top of the index
-  # pinnedPost = "/article/installing-bilberry-theme/"
-  # Set to true to pin only to the first page, false to all pages
-  # pinOnlyToFirstPage = true
-
-  # enable automatical localization of the article's PublishedDate with momentjs
-  enableMomentJs = false
-
-  # customize the date format | only works if momentjs is disabled | only works with English month names
-  # you can customize it with the options you find here:
-  # https://gohugo.io/functions/format/#hugo-date-and-time-templating-reference
-  dateFormat = "2006-01-02"
-
-  # display the estimated reading time for an article
-  showReadingTime = false
-
-  # Minimum word count to display the Table of Contents
-  tocMinWordCount = 400
-
-  # Footer configuration
-  showFooter = true
-
-  # How many articles should be displayed at latest posts in the footer?
-  # Set to -1 to hide the 'Latest Posts' column
-  amountLatestPostsInFooter = 7
-
-  # How many categories should be displayed in the footer section?
-  # Set to -1 to hide the 'Categories' column
-  amountCategoriesInFooter = 7
-
-  # show a language chooser in the footer
-  showFooterLanguageChooser = false
-
-  # social media profile urls for the footer links
-  showSocialMedia = true
-
-  # define your links with FontAwesome 5 (only free icons are supported)
-  # all icons https://fontawesome.com/icons?d=gallery&m=free
-  # brand icons https://fontawesome.com/icons?d=gallery&s=brands&m=free
-  socialMediaLinks = [
-    { link = "https://twitter.com/TheRealLednerb", icon = "fab fa-twitter" },
-    { link = "https://github.com/Lednerb", icon = "fab fa-github" },
-  ]
-
-  # credits line configuration
-  copyrightBy = "by Lednerb"
-  copyrightUseCurrentYear = false  # set to true to always display the current year in the copyright
-  copyrightYearOverride = "2017"
-  copyrightUrl = "https://github.com/Lednerb"
-  creditsText = "Bilberry Hugo Theme"
-  creditsUrl = "https://github.com/Lednerb/bilberry-hugo-theme"
-
-  [params.page]
-    noSummary = true
-  [params.page.share]
-    enable = true
-    Telegram = true
-    Pocket = true
-    VK = true
-    Facebook = true
-    Twitter = true
-    Whatsapp = true
-    Skype = true
-  [params.comment]
-    enable = true
-  [params.comment.remark42]
-    host = ""
-    site = ""
-    locale = "ru"
-  [params.header]
-    title = ''
-  [params.analytics]
-    [params.analytics.yandex]
-      id = 11111
-  [params.advertising]
-    [params.advertising.google]
-      client = ''
-  [params.verification]
-    yandex = ''
-
-# customize your available languages for your multi-langual site
-# or delete the [Languages] blog to use the theme with only one supported language
-#[Languages]
-#  [Languages.en]
-#    weight = 1
-#  [Languages.de]
-#    weight = 2
-#    title = "Mein cooler neuer Blog"
-#    subtitle = "Hallo Welt! Dies ist der epischste Untertitel aller Zeiten."
-
-# don't change anything below
-[taxonomies]
-  author   = "author"
-  tag      = "tags"
-  category = "categories"
-  series   = "series"
-
-[outputs]
-  home = [ "HTML", "JSON", "RSS" ]
-  page = [ "HTML" ]
-
-[markup]
-  [markup.tableOfContents]
-    endLevel = 5
-    ordered = false
-    startLevel = 2
+    # for search
+    # https://fusejs.io/api/options.html
+    fuseOpts:
+        isCaseSensitive: false
+        shouldSort: true
+        location: 0
+        distance: 1000
+        threshold: 0.4
+        minMatchCharLength: 0
+        keys: ["title", "permalink", "summary", "content"]
+menu:
+    main:
+        - identifier: categories
+          name: categories
+          url: /categories/
+          weight: 10
+        - identifier: tags
+          name: tags
+          url: /tags/
+          weight: 20
+        - identifier: example
+          name: example.org
+          url: https://example.org
+          weight: 30
+# Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
+# pygmentsUseClasses: true
+# markup:
+#     highlight:
+#         # anchorLineNos: true
+#         codeFences: true
+#         guessSyntax: true
+#         lineNos: true
+#         style: monokai
