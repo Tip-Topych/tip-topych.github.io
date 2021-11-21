@@ -6,7 +6,7 @@
 <body>
     <p><a href="{{ .Params.link }}">Click here if you're not redirected.</a></p>
     <script>
-        window.location = {{ .Params.link }}
+        window.location = "{{ .Params.link }}"
     </script>
 </body>
 </html>
