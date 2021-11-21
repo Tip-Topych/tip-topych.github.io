@@ -1,4 +1,4 @@
-baseURL: "https://examplesite.com/"
+baseURL: "https://tip-topych.github.io/"
 title: ExampleSite
 paginate: 5
 theme: PaperMod
@@ -95,7 +95,7 @@ params:
         hiddenInSingle: true # hide on single page
 
     editPost:
-        URL: "https://github.com/<path_to_repo>/content"
+        URL: "https://github.com/Tip-Topych/tip-topych.github.io/tree/main/content/content"
         Text: "Suggest Changes" # edit text
         appendFilePath: true # to append file path to Edit link
 
@@ -120,8 +120,8 @@ menu:
           url: /tags/
           weight: 20
         - identifier: example
-          name: example.org
-          url: https://example.org
+          name: tip-topych
+          url: https://tip-topych.github.io/
           weight: 30
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 # pygmentsUseClasses: true
