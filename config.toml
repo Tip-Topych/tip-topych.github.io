@@ -85,7 +85,7 @@ disqusShortname = ""
   # pinOnlyToFirstPage = true
 
   # enable automatical localization of the article's PublishedDate with momentjs
-  enableMomentJs = true
+  enableMomentJs = false
 
   # customize the date format | only works if momentjs is disabled | only works with English month names
   # you can customize it with the options you find here:
