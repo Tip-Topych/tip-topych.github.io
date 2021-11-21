@@ -1,0 +1,20 @@
+{{ if not .Params.Page.hiddenFeatureImage }}
+<div class="featured-image">
+{{ if .Resources.GetMatch "featured-image" }}
+{{ $imageOriginal := .Resources.GetMatch (printf "%s" ("featured-image" | safeURL)) }}
+            {{ if and (.Site.Params.resizeImages | default true) (.Params.resizeImages | default true) }}
+                <img data-feature-origin="{{ (.Resources.GetMatch "featured-image").RelPermalink }}" src="{{ ((.Resources.GetMatch "featured-image").Fill "700x350 q95 jpg").RelPermalink }}" alt="">
+            {{ else }}
+            {{ if lt 2000 $imageOriginal.Width }}
+            {{ $imageOriginal = ($imageOriginal.Resize "2000x q100") }}
+            {{ end }}
+                <img data-feature-origin="{{ (.Resources.GetMatch "featured-image").RelPermalink }}" src="{{ $imageOriginal.RelPermalink }}" alt="">
+            {{ end }}
+
+{{ else if and (isset .Params "featured-image") (ne .Params.featuredImage "") }}
+
+            <img src="{{ .ctx.Params.featuredImage | relURL }}" alt="">
+
+{{ end }}
+</div>
+{{ end }}

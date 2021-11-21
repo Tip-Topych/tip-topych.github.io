@@ -1,0 +1,17 @@
+{{ define "main" }}
+
+<div class="content">
+    <div class="article-wrapper article-position article-list u-cf single">
+            <div class="content">
+                <h3>{{ i18n "tags" }}</h3>
+                <hr>
+                <div class="tags">
+                    {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+                    <a href="{{ "/tags/" | relLangURL }}{{ $name | urlize }}">{{ $name }} ({{ $taxonomy.Count }})</a></li>
+                    {{ end }}
+                </div>
+            </div>
+
+    </div>
+</div>
+{{ end }}

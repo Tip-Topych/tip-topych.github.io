@@ -1,0 +1,8 @@
+{{- .Scratch.Set "fingerprint" .Site.Params.fingerprint -}}
+{{- $fingerprint := .Scratch.Get "fingerprint" -}}
+
+<!--<link rel="stylesheet" href="{{ "theme.css" | absURL }}">-->
+
+{{- /* style.min.css */ -}}
+{{- $style := dict "Source" "/theme.css" "Fingerprint" $fingerprint -}}
+{{- partial "plugin/style.html" $style -}}

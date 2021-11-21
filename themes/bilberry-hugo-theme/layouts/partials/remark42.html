@@ -1,0 +1,28 @@
+{{ if isset .Site.Params.Comment.Remark42 "host" }}
+{{- $comment := .Site.Params.Comment | default dict -}}
+{{ if eq $comment.enable true}}
+{{- $remark42 := $comment.remark42 | default dict -}}
+<div id="remark42" class="comment" style="padding-top: 1.5rem"></div>
+<script>
+    var themeRemark = document.body.getAttribute('theme')
+    var remark_config = {
+        host: '{{ $remark42.host }}',
+        site_id: '{{ $remark42.site }}',
+        components: ['embed'],
+        theme: themeRemark,
+        locale: '{{ $remark42.locale }}',
+        show_email_subscription: '{{ $remark42.emailSubscribe }}',
+        page_title: '{{ .Title }}'
+    };
+
+    (function(c) {
+        for(var i = 0; i < c.length; i++){
+            var d = document, s = d.createElement('script');
+            s.src = remark_config.host + '/web/' +c[i] +'.js';
+            s.defer = true;
+            (d.head || d.body).appendChild(s);
+        }
+    })(remark_config.components || ['embed']);
+</script>
+{{ end }}
+{{ end }}

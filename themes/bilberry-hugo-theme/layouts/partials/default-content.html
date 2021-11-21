@@ -1,0 +1,75 @@
+{{ $hiddenTitle := or (eq .ctx.Params.Page.hiddenTitle true) (eq .ctx.Title "") }}
+{{ $hiddenCategory := or (eq .ctx.Params.Page.hiddenCategory true) (eq .ctx.Params.categories nil) }}
+{{ $hiddenDate := or (eq .ctx.Params.Page.hiddenDate true) (eq .ctx.PublishDate nil)}}
+{{ $metaShow := or (eq $hiddenDate false) (eq .ctx.Site.Params.showReadingTime true) (ne .ctx.Params.author nil) (eq $hiddenCategory false) }}
+
+{{ $noContent := and (eq $metaShow false) (eq .ctx.Content "")}}
+
+{{ if eq $noContent false }}
+<div class="content">
+    {{ if eq $hiddenTitle false }}
+    <h1 class="article-title">
+        <a href="{{ .ctx.Permalink }}">
+            {{ .ctx.Title }}
+        </a>
+    </h1>
+    {{ end }}
+
+
+    {{ if eq $metaShow true }}
+    <div class="meta">
+        {{ if eq $hiddenDate false }}
+            {{ if and ( .ctx.Site.Params.enableMomentJs | default true ) (le (now.Sub (time .ctx.PublishDate)).Hours 336)  }}
+                <span class="date moment">{{ .ctx.PublishDate.Format "02 Jan 06 15:04 -0700" }}</span>
+            {{ else }}
+                <span class="date">{{ .ctx.PublishDate.Format (.ctx.Site.Params.DateFormat | default "2006-01-02") }}</span>
+            {{ end }}
+        {{ end }}
+
+        {{ if ( .ctx.Site.Params.showReadingTime | default false ) }}
+            {{ if .ctx.Params.readingTime }}
+                <span class="readingTime">{{ i18n "readingTime" .ctx.Params.readingTime }}</span>
+            {{ else }}
+                <span class="readingTime">{{ i18n "readingTime" .ctx.ReadingTime }}</span>
+            {{ end }}
+        {{ end }}
+
+        {{ if eq $hiddenCategory false }}
+            <span class="categories">
+                {{ range .ctx.Params.categories }}
+                    {{ $urlValue := replace . " " "-" | lower}}
+                    {{ with $.ctx.Site.GetPage (printf "/categories/%s" $urlValue) }}
+                        <a href="{{ .Permalink }}">{{ .Title }}</a>
+                    {{ end }}
+                {{ end }}
+            </span>
+        {{ end }}
+
+        {{ with .ctx.Params.author }}
+            <span class="author">
+                {{ $urlValue := replace . " " "-" | lower}}
+                {{ with $.ctx.Site.GetPage (printf "/author/%s" $urlValue ) }}
+                    <a href="{{ .Permalink }}">{{ .Title }}</a>
+                {{ end }}
+            </span>
+        {{ end }}
+    </div>
+    {{ end }}
+    {{ if or (eq .template_type "single") (.ctx.Params.noSummary | default $.ctx.Site.Params.Page.NoSummary) }}
+        {{ if and (gt .ctx.WordCount .ctx.Site.Params.tocMinWordCount ) (.ctx.Params.toc) }}
+            <h2>{{ i18n "tableOfContents" | default "tableOfContents" }}</h2>
+            {{ .ctx.TableOfContents }}
+        {{ end }}
+
+        {{ .ctx.Content }}
+
+    {{ else }}
+    <div class="summary">
+        {{ .ctx.Summary }}
+    </div>
+    <div class="more-block">
+        <a href="{{ .ctx.Permalink }}" class="more">{{ i18n "continueReading" }}</a>
+    </div>
+    {{ end }}
+</div>
+{{ end }}

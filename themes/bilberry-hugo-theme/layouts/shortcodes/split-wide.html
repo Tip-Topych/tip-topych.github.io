@@ -1,0 +1,11 @@
+{{ $class := cond $.IsNamedParams ($.Get "class") "" }}
+
+</div></article></div></div></div>
+<div class="content-break content-block-position {{ with $class }}{{ . }}{{ end }}">
+        {{ .Inner }}
+</div>
+<div class="container">
+    <div class="main container">
+        <div class="article-wrapper article-position u-cf single" style="display: block">
+            <article class="article-position default article-single" style="display: block">
+                <div class="content">

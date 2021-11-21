@@ -1,0 +1,16 @@
+{{ if not .ctx.Params.Page.hiddenFeatureImage }}
+
+<div class="featured-image" {{ if eq .noFullImage false }} style="height: 100%" {{ end }}>
+{{ if .ctx.Resources.GetMatch "featured-image" }}
+
+            {{ if and (.ctx.Site.Params.resizeImages | default true) (.ctx.Params.resizeImages | default true) }}
+                <img data-test="{{ (.ctx.Resources.GetMatch "featured-image").RelPermalink }}" src="{{ ((.ctx.Resources.GetMatch "featured-image").Fill "700x350 q95").RelPermalink }}" {{ if eq .noFullImage false }} style="height: 100%" {{ end }} alt="">
+            {{ else }}
+                <img src="{{ (.ctx.Resources.GetMatch "featured-image").RelPermalink }}" {{ if eq .noFullImage false }} style="height: 100%" {{ end }} alt="">
+            {{ end }}
+
+{{ else if and (isset .ctx.Params "featured-image") (ne .ctx.Params.featuredImage "") }}
+            <img src="{{ .ctx.Params.featuredImage | relURL }}" alt="">
+{{ end }}
+</div>
+{{ end }}

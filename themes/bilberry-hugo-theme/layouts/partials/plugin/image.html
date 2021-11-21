@@ -1,0 +1,25 @@
+{{- $src := .Src -}}
+{{- with dict "Path" .Src "Resources" .Resources | partial "function/resource.html" -}}
+    {{- $src = .RelPermalink -}}
+{{- end -}}
+
+{{- $miniImage := .MiniImage -}}
+
+{{- $alt := .Alt | default $src -}}
+
+<div class="image-block" style="width: 100%">
+{{- if .Linked -}}
+        <img style="width: 100%" data-feature-origin="{{ .Src | safeURL }}" loading="lazy" decoding="async"
+             {{ with .Class }}class="{{ . }}"{{ end }}
+             src="{{ $miniImage }}"
+            alt="{{ $alt }}"{{ with .Height }} height="{{ . }}"{{ end }}{{ with .Width }} width="{{ . }}"{{ end }}
+        />
+{{- else -}}
+    <img style="width: 100%" data-feature-origin="{{ .Src | safeURL }}" loading="lazy" decoding="async"
+         {{ with .Class }}class="{{ . }}"{{ end }}
+         src="{{ $miniImage }}"
+         alt="{{ $alt }}"
+         title="{{ .Title | default $alt }}"{{ with .Height }} height="{{ . }}"{{ end }}{{ with .Width }} width="{{ . }}"{{ end }}
+    />
+{{- end -}}
+</div>

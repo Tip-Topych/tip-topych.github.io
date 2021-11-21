@@ -1,0 +1,55 @@
+{{ with . }}
+
+    <div class="article-wrapper article-position article-list u-cf">
+        <a class="bubble" href="{{ .Permalink }}">
+            {{ $emojiIcon := .Params.Page.iconEmoji | default "" }}
+            {{ if not (eq $emojiIcon "" )}}
+            {{ $emojiIcon | safeHTML }}
+            {{ else }}
+            <i class="fas fa-fw {{ or .Params.icon "fa-pencil-alt" }}"></i>
+            {{ end }}
+        </a>
+
+        <article class="default article">
+            <div class="content">
+                <h1 class="article-title">
+                    <a href="{{ .Permalink }}">
+                        {{ .Title }}
+                    </a>
+                </h1>
+
+                <div class="meta meta-series">
+                    {{ if and ( .Site.Params.enableMomentJs | default true ) (le (now.Sub (time .PublishDate)).Hours 336)  }}
+                    <span class="date moment">{{ .PublishDate.Format "02 Jan 06 15:04 -0700" }}</span>
+                    {{ else }}
+                    <span class="date">{{ .PublishDate.Format (.Site.Params.DateFormat | default "2006-01-02") }}</span>
+                    {{ end }}
+
+                    {{ if .Params.readingTime }}
+                    <span class="readingTime">{{ i18n "readingTime" .Params.readingTime }}</span>
+                    {{ else }}
+                    <span class="readingTime">{{ i18n "readingTime" .ReadingTime }}</span>
+                    {{ end }}
+
+                    <span class="categories">
+                {{ range .Params.categories }}
+                    {{ $urlValue := replace . " " "-" | lower}}
+                    {{ with $.Site.GetPage (printf "/categories/%s" $urlValue) }}
+                        <a href="{{ .Permalink }}">{{ .Title }}</a>
+                    {{ end }}
+            </span>
+                    {{ end }}
+
+                    {{ with .Params.author }}
+                    <span class="author">
+                {{ $urlValue := replace . " " "-" | lower}}
+                {{ with $.Site.GetPage (printf "/author/%s" $urlValue ) }}
+                    <a href="{{ .Permalink }}">{{ .Title }}</a>
+                {{ end }}
+            </span>
+                </div>
+                {{ end }}
+        </article>
+    </div>
+
+{{ end }}

@@ -1,0 +1,29 @@
+{{ $figcap := or .Title }}
+{{ $caption := or .Text " " }}
+{{ $alt := or .Text $figcap }}
+{{- if eq $figcap $caption -}}
+{{ $caption = " " }}
+{{- end -}}
+{{ $imageOriginal := .Page.Resources.GetMatch (printf "%s" (.Destination | safeURL)) }}
+{{ $miniImage := $imageOriginal }}
+{{ if $imageOriginal }}
+    {{ if lt 2000 $miniImage.Width }}
+        {{ $miniImage = ($miniImage.Resize "2000x q100 jpg").RelPermalink }}
+    {{ else }}
+        {{ $miniImage = $miniImage.RelPermalink }}
+    {{ end }}
+    {{ $imageOriginal = $imageOriginal.RelPermalink}}
+{{ else }}
+    {{ $imageOriginal = .Destination }}
+    {{ $miniImage = $imageOriginal }}
+{{ end }}
+{{- if $figcap -}}
+<figure class="render-image">
+    {{- dict "Src" $imageOriginal "MiniImage" $miniImage "Class" "render-image" "Title" $figcap "Alt" $alt "Caption" $caption "Linked" true "Resources" .Page.Resources | partial "plugin/image.html" -}}
+    <figcaption class="image-caption">
+        {{- $figcap | safeHTML -}}
+    </figcaption>
+</figure>
+{{- else -}}
+{{- dict "Src" $imageOriginal "MiniImage" $miniImage "Title" (path.Base .Destination) "Class" "render-image" "Alt" $alt "Resources" .Page.Resources | partial "plugin/image.html" -}}
+{{- end -}}

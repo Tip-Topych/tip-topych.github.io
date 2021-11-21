@@ -1,0 +1,226 @@
+@import "no-js";
+
+.bilberry-hugo-theme {
+
+  background-color: $page-background-color;
+  font-family: $content-font;
+  color: $text-color;
+  font-size: 1.75em;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .title,
+  .subtitle {
+    font-family: $headline-font;
+  }
+
+  h3 {
+    margin-bottom: 1rem;
+  }
+
+  h3, {
+    margin-top: 6rem;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      color: $highlight-color;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  pre {
+    position: relative;
+
+    code {
+      padding: 0.75em;
+      font-size: 0.9em;
+      white-space: pre;
+      overflow-x: auto;
+    }
+
+    .copy-button {
+      display: none;
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      background: #f1f1f1;
+      padding: 4px;
+      font-size: 12pt;
+      line-height: normal;
+      height: auto;
+    }
+
+    &:hover .copy-button {
+      display: block;
+    }
+  }
+
+  code {
+    font-family: 'Fira Code', monospace;
+    border: 0;
+    margin: 0;
+    white-space: normal;
+  }
+
+  .tooltipster-light {
+    font-size: 0.75em;
+
+    .tooltipster-content {
+      padding: 6px 10px;
+    }
+  }
+
+  .bubble .fas {
+    font-size: 15pt;
+  }
+
+
+  .container {
+    width: $site-width;
+    max-width: 100%;
+  }
+
+  .ulist {
+    // Fix for asciidoctor-html5s
+    padding-left: 1em;
+  }
+
+  ul {
+    list-style: circle;
+    padding-left: inherit;
+  }
+
+  .flexslider {
+
+    ol,
+    ul {
+      list-style: none;
+    }
+  }
+
+
+  .fa-youtube-adblock-proof:before {
+    content: "\F167";
+  }
+
+  .container-box {
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+    width: 700px;
+  }
+
+  .external-profiles {
+    font-size: 20px;
+
+    X
+      // Workaround to avoid conflicts with Adblock
+      // See: https://github.com/Lednerb/bilberry-hugo-theme/issues/95
+    .fa-facebook-adblock-proof:before {
+      content: "\f09a";
+    }
+
+    .fa-twitter-adblock-proof:before {
+      content: "\f099";
+    }
+
+    .fa-google-plus-official-adblock-proof:before {
+      content: "\f2b3";
+    }
+
+    .fa-youtube-adblock-proof:before {
+      content: "\f167";
+    }
+  }
+
+  .content-break {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 5em;
+
+    figure {
+      margin-left: 0;
+      width: 100%;
+
+      img {
+        width: 100%;
+      }
+
+    }
+
+    h2 {
+      margin-top: 3em;
+      margin-bottom: 1em;
+    }
+  }
+
+  .image-block {
+    margin-bottom: 2rem;
+  }
+
+  figure {
+    margin-left: 0;
+    margin-right: 0;
+    text-align: center;
+
+    .image-caption:not(:empty) {
+      box-sizing: border-box;
+      border-left: none;
+      width: 90%;
+      padding: 10px 0 0 0;
+      margin: 0 auto;
+      text-align: center;
+      font-weight: 900;
+      color: #666;
+      font-size: 95%;
+
+      min-width: 20%;
+      display: inline-block;
+    }
+
+    .image-block {
+      margin-bottom: 0;
+    }
+  }
+
+  .block-media__body {
+    margin: 50px auto;
+    padding: 0;
+    text-align: center;
+  }
+
+  .summary {
+    display: block;
+    margin-bottom: 2em;
+  }
+
+  @import "share-icon";
+
+  @import "topnav";
+
+  @import "header";
+
+  @import "main";
+
+  @import "articles";
+
+  @import "pagination";
+
+  @import "footer";
+
+  @import "responsive";
+
+}

@@ -1,0 +1,14 @@
+<a class="bubble" href="{{ .ctx.Permalink }}">
+{{ $emojiIcon := .ctx.Params.Page.iconEmoji | default "" }}
+{{ if not (eq $emojiIcon "" )}}
+    {{ $emojiIcon | safeHTML }}
+{{ else }}
+    <i class="fas fa-fw {{ or .ctx.Params.icon "fa-pencil-alt" }}"></i>
+{{ end }}
+</a>
+
+<article class="default article">
+    {{ partial "featured-image.html" .ctx }}
+    {{ partial "default-content.html" (dict "ctx" .ctx "template_type" .template_type)  }}
+    {{ partial "article-footer.html" .ctx }}
+</article>

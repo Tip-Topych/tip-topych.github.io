@@ -1,0 +1,55 @@
+<article class="status article-single">
+    {{ if .ctx.Resources.GetMatch "featured-image" }}
+        <div class="featured-image">
+            {{ if and (.ctx.Site.Params.resizeImages | default true) (.ctx.Params.resizeImages | default true) }}
+                <img src="{{ ((.ctx.Resources.GetMatch "featured-image").Fill "700x350 q95").RelPermalink }}" alt="">
+            {{ else }}
+                <img src="{{ (.ctx.Resources.GetMatch "featured-image").RelPermalink }}" alt="">
+            {{ end }}
+        </div>
+    {{ else if and (isset .ctx.Params "featuredimage") (ne .ctx.Params.featuredImage "") }}
+        <div class="featured-image">
+            <img src="{{ .ctx.Params.featuredImage | relURL }}" alt="">
+        </div>
+    {{ end }}
+
+    <div class="content content-status" onclick="window.open('{{ .ctx.Permalink }}')">
+
+
+        {{ if or ( or ( .ctx.Params.showDate | default true ) .ctx.Params.categories) .ctx.Params.author  }}
+            <div class="meta">
+                {{ if ( .ctx.Params.showDate | default true ) }}
+                    {{ if and ( .ctx.Site.Params.enableMomentJs | default true ) (le (now.Sub (time .ctx.PublishDate)).Hours 336)  }}
+                        <span class="date moment">{{ .ctx.PublishDate.Format "02 Jan 06 15:04 -0700" }}</span>
+                    {{ else }}
+                        <span class="date">{{ .ctx.PublishDate.Format (.ctx.Site.Params.DateFormat | default "2006-01-02") }}</span>
+                    {{ end }}
+                {{ end }}
+
+                {{ with .ctx.Params.categories }}
+                    <span class="categories">
+                        {{ range . }}
+                            {{ $urlValue := replace . " " "-" | lower}}
+                            {{ with $.ctx.Site.GetPage (printf "/categories/%s" $urlValue) }}
+                                <a href="{{ .Permalink }}">{{ .Title }}</a>
+                            {{ end }}
+                        {{ end }}
+                    </span>
+                {{ end }}
+
+                {{ with .ctx.Params.author }}
+                    <span class="author">
+                        {{ $urlValue := replace . " " "-" | lower}}
+                        {{ with $.ctx.Site.GetPage (printf "/author/%s" $urlValue ) }}
+                            <a href="{{ .Permalink }}">{{ .Title }}</a>
+                        {{ end }}
+                    </span>
+                {{ end }}
+            </div>
+        {{ end }}
+
+        {{ .ctx.Content }}
+
+    </div>
+    {{ partial "article-footer.html" .ctx }}
+</article>

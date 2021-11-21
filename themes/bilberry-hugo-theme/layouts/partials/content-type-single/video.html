@@ -1,0 +1,23 @@
+{{ $noMetaShow := or (eq .ctx.Params.showDate true) (eq .ctx.Site.Params.showReadingTime true) (ne .ctx.Params.author nil) (ne .ctx.Params.categories nil)}}
+
+<article class="video article-single">
+
+    {{ with .ctx.Params.youtube }}
+        {{ partial "video-embed" (dict "type" "youtube" "id" .) }}
+    {{ end }}
+
+    {{ with .ctx.Params.vimeo }}
+        {{ partial "video-embed" (dict "type" "vimeo" "id" .) }}
+    {{ end }}
+
+    {{ with .ctx.Params.prezi }}
+        {{ partial "video-embed" (dict "type" "prezi" "id" .) }}
+    {{ end }}
+
+    {{ if isset .ctx.Params "mp4video" }}
+        {{ partial "video-embed" (dict "type" "mp4" "url" .ctx.Params.mp4video "imageUrl" .ctx.Params.mp4videoImage "mp4settings" .ctx.Params.mp4settings) }}
+    {{ end }}
+
+    {{ partial "default-content.html" (dict "ctx" .ctx "template_type" .template_type "noMetaShow" $noMetaShow) }}
+    {{ partial "article-footer.html" .ctx }}
+</article>

@@ -1,0 +1,176 @@
+.post-info-share {
+  text-align: center;
+  padding: 20px 0 40px 0;
+
+  a.share-icon {
+    color: transparentize($base-color, 0.60);
+    border: 2px solid transparentize($base-color, 0.60);
+  }
+}
+
+.share-link {
+  margin-top: 15px;
+  margin-right: 8px;
+  font-size: 18px;
+  display: inline-block;
+}
+
+.share-text {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.share-icon {
+  color: white;
+  border-radius: 6px;
+  padding: 3px 6px 3px;
+
+  .fa-fw {
+    width: 2.25em;
+  }
+}
+
+a.share-telegram:hover {
+  color: #2CA5E0;
+  border: solid 2px #2CA5E0;
+}
+
+a.share-twitter:hover {
+  color: #1DA1F2;
+  border: solid 2px #1DA1F2;
+}
+
+a.share-vk:hover {
+  color: #4680C2;
+  border: solid 2px #4680C2;
+}
+
+a.share-facebook:hover {
+  color: #1877F2;
+  border: solid 2px #1877F2;
+}
+
+a.share-whatsapp:hover {
+  color: #25D366;
+  border: solid 2px #25D366;
+}
+
+a.share-pocket:hover {
+  color: #EF3F56;
+  border: solid 2px #EF3F56;
+}
+
+a.share-linkedin:hover {
+  color: #0077B5;
+  border: solid 2px #0077B5;
+}
+
+a.share-viber:hover {
+  color: #665CAC;
+  border: solid 2px #665CAC;
+}
+
+a.share-pinterest:hover {
+  color: #BD081C;
+  border: solid 2px #BD081C;
+}
+
+a.share-tumblr:hover {
+  color: #36465D;
+  border: solid 2px #36465D;
+}
+
+a.share-reddit:hover {
+  color: #FF4500;
+  border: solid 2px #FF4500;
+}
+
+a.share-buffer:hover {
+  background: #168EEA;
+  border: solid 2px #168EEA;
+}
+
+a.share-xing:hover {
+  color: #006567;
+  border: solid 2px #006567;
+}
+
+a.share-line:hover {
+  color: #00C300;
+  border: solid 2px #00C300;
+}
+
+a.share-instapaper:hover {
+  color: #1F1F1F;
+  border: solid 2px #1F1F1F;
+}
+
+a.share-digg:hover {
+  color: #000000;
+  border: solid 2px #000000;
+}
+
+a.share-stumbleupon:hover {
+  color: #FD8235;
+  border: solid 2px #FD8235;
+}
+
+a.share-flipboard:hover {
+  color: #E12828;
+  border: solid 2px #E12828;
+}
+
+a.share-weibo:hover {
+  color: #20B8E5;
+  border: solid 2px #20B8E5;
+}
+
+a.share-renren:hover {
+  color: #217DC6;
+  border: solid 2px #217DC6;
+}
+
+a.share-myspace:hover {
+  color: #030303;
+  border: solid 2px #030303;
+}
+
+a.share-blogger:hover {
+  color: #FF5722;
+  border: solid 2px #FF5722;
+}
+
+a.share-baidu:hover {
+  color: #2319DC;
+  border: solid 2px #2319DC;
+}
+
+a.share-ok:hover {
+  color: #EE8208;
+  border: solid 2px #EE8208;
+}
+
+a.share-evernote:hover {
+  color: #00A82D;
+  border: solid 2px #00A82D;
+}
+
+a.share-skype:hover {
+  color: #00AFF0;
+  border: solid 2px #00AFF0;
+}
+
+a.share-trello:hover {
+  color: #0079BF;
+  border: solid 2px #0079BF;
+}
+
+a.share-mix:hover {
+  color: #FF8126;
+  border: solid 2px #FF8126;
+}
+
+a.share-hackernews:hover {
+  color: #FF8126;
+  border: solid 2px #FF8126;
+}

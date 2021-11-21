@@ -1,0 +1,59 @@
+{{ define "main" }}
+<div class="main container">
+
+    {{ if ne .Params.Series nil }}
+    {{ range $key, $taxonomy := .Site.Taxonomies.series }}
+    {{ if in $.Params.Series $key }}
+    {{ range $taxonomy.Pages }}
+    {{ if eq .Title $.Title}}
+    {{ partial "single.content.html" .}}
+    {{ else }}
+    {{ partial "article-series.html" . }}
+    {{ end }}
+    {{ end }}
+    {{ end }}
+    {{ end }}
+
+    {{ else }}
+
+    {{ partial "single.content.html" .}}
+
+    {{ end }}
+
+    {{- with .Site.Params.Advertising.Google.Slot -}}
+    <div class="article-wrapper article-position article-list">
+        <div class="container-box" style="width: 900px;">
+            {{ with $.Site.Params.Advertising.Google.Slot }}
+            <aside>
+                <div class="">
+                    <div class="no-adb">
+                        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                        <ins class="adsbygoogle"
+                             style="display:block; text-align:center;"
+                             data-ad-layout="in-article"
+                             data-ad-format="fluid"
+                             data-ad-client="{{- with $.Site.Params.Advertising.Google.Client -}}{{ . }}{{ end }}"
+                             data-ad-slot="{{ . }}"></ins>
+                        <script>
+                            (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                    </div>
+                </div>
+            </aside>
+            {{ end }}
+        </div>
+    </div>
+    {{- end -}}
+    {{ if ( .Site.Params.Comment.enable | default false ) }}
+    <div class="article-wrapper article-position article-list">
+        <div id="comments-container" class="container-box" style="width: 900px;">
+            {{ template "_internal/disqus.html" . }}
+            {{ partial "commento.html" . }}
+            {{ partial "remark42.html" . }}
+        </div>
+    </div>
+    {{ end }}
+
+
+</div>
+{{ end }}
