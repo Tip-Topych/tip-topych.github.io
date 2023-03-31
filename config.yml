@@ -6,6 +6,12 @@ theme: PaperMod
 enableRobotsTXT: true
 buildDrafts: false
 
+outputs:
+    home:
+        - HTML
+        - RSS
+        - JSON
+
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
   title: Lazy Blog
