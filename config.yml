@@ -33,3 +33,8 @@ params:
   hideSummary: false
   showtoc: false
   tocopen: false
+  
+  editPost:
+    URL: "https://github.com/Tip-Topych/tip-topych.github.io/tree/main/content"
+    Text: "Suggest Changes" # edit text
+    appendFilePath: true # to append file path to Edit link
