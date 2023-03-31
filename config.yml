@@ -1,4 +1,35 @@
-baseURL: http://example.org/
+baseURL: https://tip-topych.github.io/
 languageCode: en-us
 title: Lazy Blog
 theme: PaperMod
+
+enableRobotsTXT: true
+buildDrafts: false
+
+params:
+  env: production # to enable google analytics, opengraph, twitter-cards and schema.
+  title: Lazy Blog
+  description: "Ленивый блог"
+  keywords: [Blog, Portfolio, DIY, Lazy Kraken]
+  author: Lazy Kraken
+  # author: ["Me", "You"] # multiple authors
+  images: ["<link or path of image for opengraph, twitter-cards>"]
+  DateFormat: "January 2, 2006"
+  defaultTheme: auto # dark, light
+  disableThemeToggle: false
+
+  ShowReadingTime: true
+  ShowShareButtons: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: false
+  ShowWordCount: true
+  ShowRssButtonInSectionTermList: true
+  UseHugoToc: true
+  disableSpecial1stPost: false
+  disableScrollToTop: false
+  comments: false
+  hidemeta: false
+  hideSummary: false
+  showtoc: false
+  tocopen: false
