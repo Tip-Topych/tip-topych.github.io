@@ -2,6 +2,9 @@ baseURL: https://tip-topych.github.io/
 languageCode: en-us
 title: Lazy Blog
 theme: PaperMod
+paginate: 5
+
+sectionPagesMenu: main
 
 enableRobotsTXT: true
 buildDrafts: false
