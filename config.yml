@@ -74,3 +74,6 @@ params:
     threshold: 0.4
     minMatchCharLength: 0
     keys: ["title", "permalink", "summary", "content"]
+    
+    remark42SiteID: "tip-topych.github.io"
+    remark42Url: "https://remark42.lazykraken.ru"
