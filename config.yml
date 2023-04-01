@@ -6,6 +6,17 @@ paginate: 5
 
 sectionPagesMenu: main
 
+menu:
+  main:
+    - identifier: categories
+      name: categories
+      url: /categories/
+      weight: 10
+    - identifier: tags
+      name: tags
+      url: /tags/
+      weight: 20
+
 enableRobotsTXT: true
 buildDrafts: false
 
@@ -22,7 +33,7 @@ params:
   keywords: [Blog, Portfolio, DIY, Lazy Kraken]
   author: Lazy Kraken
   # author: ["Me", "You"] # multiple authors
-  images: ["static/construction-tools-flatlay.jpg"]
+  images: ["construction-tools-flatlay.jpg"]
   DateFormat: "January 2, 2006"
   defaultTheme: dark # auto, light
   disableThemeToggle: false
