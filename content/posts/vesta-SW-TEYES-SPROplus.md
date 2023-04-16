@@ -2,7 +2,7 @@
 title: "Vesta SW and TEYES SPROplus (canbus 1.1)"
 date: 2023-04-16T23:13:27+07:00
 draft: false
-tags: vesta, teyes
+tags: [vesta, teyes]
 ---
 
 06-04-2023-18:04
