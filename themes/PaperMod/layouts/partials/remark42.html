@@ -1,0 +1,13 @@
+{{ if .Site.Params.remark42.enable }}
+<div id="remark42"></div>
+<script src="{{ .Site.Params.remark42.host }}/web/embed.js" async></script>
+<script>
+  var options = {
+    host: '{{ .Site.Params.remark42.host }}',
+    site_id: '{{ .Site.Params.remark42.site_id }}',
+    components: ['embed'],
+    theme: '{{ .Site.Params.remark42.theme }}'
+  };
+  window.remark42 = new Remark42(options);
+</script>
+{{ end }}
