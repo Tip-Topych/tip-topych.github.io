@@ -77,3 +77,8 @@ params:
     
     remark42SiteID: "tip-topych.github.io"
     remark42Url: "https://remark42.lazykraken.ru"
+  remark42:
+    enable: true
+    host: "https://remark42.lazykraken.ru"
+    site_id: "tip-topych.github.io"
+    theme: dark
