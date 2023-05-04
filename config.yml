@@ -21,10 +21,10 @@ enableRobotsTXT: true
 buildDrafts: false
 
 outputs:
-    home:
-        - HTML
-        - RSS
-        - JSON
+  home:
+    - HTML
+    - RSS
+    - JSON
 
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
@@ -37,7 +37,7 @@ params:
   DateFormat: "January 2, 2006"
   defaultTheme: dark # auto, light
   disableThemeToggle: false
-
+  ShowBreadCrumbs: true
   ShowReadingTime: true
   ShowShareButtons: true
   ShowPostNavLinks: true
@@ -48,7 +48,7 @@ params:
   UseHugoToc: true
   disableSpecial1stPost: false
   disableScrollToTop: false
-  comments: false
+  comments: true
   hidemeta: false
   hideSummary: false
   showtoc: true
@@ -66,19 +66,14 @@ params:
     Text: "Suggest Changes" # edit text
     appendFilePath: true # to append file path to Edit link
     
-  fuseOpts:
-    isCaseSensitive: false
-    shouldSort: true
-    location: 0
-    distance: 1000
-    threshold: 0.4
-    minMatchCharLength: 0
-    keys: ["title", "permalink", "summary", "content"]
-    
-    remark42SiteID: "tip-topych.github.io"
-    remark42Url: "https://remark42.lazykraken.ru"
+
+
   remark42:
     enable: true
     host: "https://remark42.lazykraken.ru"
     site_id: "tip-topych.github.io"
-    theme: dark
+    theme: "dark"
+    locale: "ru"
+    components: "['embed', 'last-comments', 'counter']"
+    show_email_subscription: false
+    simple_view: true
